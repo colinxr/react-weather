@@ -4,6 +4,7 @@ import axios from 'axios';
 import Header from './components/Header';
 import Form from './components/Form';
 import DailyForecast from './components/DailyForecast';
+import Button from './components/Button';
 
 import './styles/App.css';
 
@@ -13,6 +14,7 @@ class App extends Component {
     this.state = {
       location: '',
       forecast: {},
+      fiveDayForecast: [{}],
       isOpen: false
     }
     this.getForecast = this.getForecast.bind(this);
@@ -39,10 +41,14 @@ class App extends Component {
       });
     }
 
+  getFiveDayForecast(location) {
+    console.log('test 2 ' + location);
+  }
+
   render() {
     return (
       <div className="App">
-        <Header />
+        <Header title="React Weathr"/>
         <div className="container">
           <Form onFormSubmit={this.getForecast} />
           <div className="main">
@@ -50,6 +56,13 @@ class App extends Component {
               location={this.state.location}
               forecast={this.state.forecast}
               show={this.state.isOpen}
+            />
+            <Button
+              location={this.state.location}
+              show={this.state.isOpen}
+              onBtnClick={this.getFiveDayForecast}
+              classname="btn btn-default btn--forecast"
+              buttonText="Get Five Day Forecast →"
             />
           </div>
         </div>

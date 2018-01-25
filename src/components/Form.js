@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Button from './Button';
 
 class Form extends Component {
 
@@ -18,8 +19,8 @@ class Form extends Component {
     return (
       <form id="form" onSubmit={(e) => this.submitForm(e)}>
         <label for="location">Enter your location</label>
-        <input id="formLocation" type="text" name="location"  placeholder="Just your city, please" required autoFocus ref={(input) => {this.formInput = input}} />
-        <button type="submit">Get Weather →</button>
+        <input id="formLocation" type="text" name="location"  placeholder="Just your city, please" required autoComplete="off" autoFocus ref={(input) => {this.formInput = input}} />
+        <Button classname="btn btn-default" buttonText="Get Weather →"/>
       </form>
     );
   }

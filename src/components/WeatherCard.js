@@ -32,8 +32,8 @@ class WeatherCard extends Component {
           </div>
 
           <div className="info__weather">
-            <p className="wind">{forecast.wind.speed}</p>
-            <p className="humidex">{forecast.main.humidity}</p>
+            <p className="wind">Wind: {forecast.wind.speed} km/h</p>
+            <p className="humidex">Humidity: {forecast.main.humidity}%</p>
           </div>
 
         </div>
