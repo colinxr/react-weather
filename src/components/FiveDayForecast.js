@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Day from './Day';
 
 class FiveDayForecast extends Component {
 
@@ -8,9 +9,14 @@ class FiveDayForecast extends Component {
     }
 
     return(
-      <div className="forecase__five-day">
+      <div className="forecast__five-day">
         <div className="five-days">
-          <h2>Here's a forecast</h2>
+          {
+            Object
+            .keys(this.props.forecast)
+            .map(key => <Day key={key} index={key}
+              details={this.props.forecast[key]}/>)
+          }
       </div>
       </div>
     )

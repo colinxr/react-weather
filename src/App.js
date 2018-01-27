@@ -25,9 +25,11 @@ class App extends Component {
   }
 
   getForecast(location) {
+    console.log(location);
     const weatherApi = 'http://api.openweathermap.org/data/2.5/weather?appid=db55c1d42642ef65aff9ac8f322f3b44&units=metric';
 
     const encodedLocation = encodeURIComponent(location);
+    console.log(encodedLocation);
 
     axios.get(`${weatherApi}&q=${encodedLocation}`)
       .then(resp => {
@@ -36,6 +38,7 @@ class App extends Component {
           this.setState({
             location: location,
             forecast: resp.data,
+            fiveDayForecast: [],
             isOpen: true
           });
         }
@@ -72,8 +75,8 @@ class App extends Component {
       <div className="App">
         <Header title="React Weathr"/>
         <div className="container">
-          <Form onFormSubmit={this.getForecast} />
           <div className="main">
+            <Form onFormSubmit={this.getForecast} />
             <DailyForecast
               location={this.state.location}
               forecast={this.state.forecast}
@@ -86,10 +89,10 @@ class App extends Component {
               classname="btn btn-default btn--forecast"
               buttonText="Get Five Day Forecast →"
             />
+          </div>
           <FiveDayForecast
             forecast={this.state.fiveDayForecast}
           />
-          </div>
         </div>
       </div>
     );

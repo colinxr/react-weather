@@ -24,30 +24,34 @@ p {
   line-height: 27px;
   margin-bottom: 0;
 }
-
 label {
   font-size: 18px;
 }
-
 input[type=text] {
   font-size: 27px;
   text-transform: capitalize;
 }
-
-
 .container {
   padding-top: 81px;
   max-width: 1024px;
 }
 .main {
   margin: 0 auto;
-  max-width: 728px;
+  width: 728px;
 }
 .card {
   margin-top: 81px;
   padding: 27px;
 
   h2 { text-transform: capitalize; }
+
+  &--day {
+    flex: 1;
+    text-align: center;
+    &__desc {
+      text-transform: capitalize;
+    }
+  }
 }
 .info {
   display: flex;
@@ -59,14 +63,6 @@ input[type=text] {
 }
 .five-days {
   display: flex;
-}
-
-.card__five-day {
-  flex: 1;
-  text-align: center;
-  .desc__five-day {
-    text-transform: capitalize;
-  }
 }
 
 @keyframes App-logo-spin {
