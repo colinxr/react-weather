@@ -25,16 +25,12 @@ class App extends Component {
   }
 
   getForecast(location) {
-    console.log(location);
     const weatherApi = 'http://api.openweathermap.org/data/2.5/weather?appid=db55c1d42642ef65aff9ac8f322f3b44&units=metric';
-
     const encodedLocation = encodeURIComponent(location);
-    console.log(encodedLocation);
 
     axios.get(`${weatherApi}&q=${encodedLocation}`)
       .then(resp => {
         if (resp.data) {
-          console.log(resp.data);
           this.setState({
             location: location,
             forecast: resp.data,
@@ -55,19 +51,15 @@ class App extends Component {
     const encodedLocation = encodeURIComponent(location);
 
     axios.get(`${forecastApi}&q=${encodedLocation}`)
-      .then(resp => {
-        const data = resp.data.list
-        const fiveDayForecast = data.slice(1, data.length - 1);
+    .then(resp => {
+      const data = resp.data.list
+      const fiveDayForecast = data.slice(1, data.length - 1);
 
-        this.setState({ fiveDayForecast });
-        console.log(this.state.fiveDayForecast);
-      })
-      .catch(err => {
-        console.log(err);
-      })
-    //to do
-    // create new component for five day forecast
-    // for each item in array render out component
+      this.setState({ fiveDayForecast });
+    })
+    .catch(err => {
+      console.log(err);
+    });
   }
 
   render() {

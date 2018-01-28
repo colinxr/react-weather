@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class FiveDayForecast extends Component {
+class Day extends Component {
 
   constructor() {
     super();
@@ -42,4 +42,4 @@ class FiveDayForecast extends Component {
   }
 }
 
-export default FiveDayForecast;
+export default Day;

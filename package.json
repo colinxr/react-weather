@@ -1,7 +1,8 @@
 {
   "name": "react-weathr",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
+  "homepage": "http://www.colinrabyniuk.com/react-weathr/",
   "devDependencies": {
     "babel-eslint": "^7.1.1",
     "concurrently": "3.0.0",
